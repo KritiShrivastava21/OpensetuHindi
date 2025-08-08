@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OpenSetu प्रलेखन</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+    }
+
+    .about-wrapper {
+      background-color: #F7F9FB;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .white-tilted-layer {
+      position: absolute;
+      top: 60px;
+      width: 100%;
+      height: 1300px;
+      background: white;
+      transform: skewY(-5deg);
+      z-index: 0;
+    }
+
+    .blue-shapes {
+      position: absolute;
+      top: -45px;
+      right: 0;
+      z-index: 1;
+      transform: skewY(-5deg);
+    }
+
+    .blue1, .blue2 {
+      height: 25px;
+      transform: skewX(-30deg);
+      position: absolute;
+    }
+
+    .blue1 {
+      background-color: #80E9FF;
+      top: 50px;
+      right: 10px;
+      z-index: 1;
+      width: 420px;
+    }
+
+    .blue2 {
+      background-color: #185ADB;
+      top: 70px;
+      right: 220px;
+      z-index: 2;
+      width: 120px;
+    }
+
+    .section {
+      position: relative;
+      max-width: 900px;
+      padding: 120px 24px 80px;
+      margin: auto;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: #032E83;
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      color: #032E83;
+      margin-top: 40px;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #425466;
+      margin-bottom: 16px;
+    }
+
+    a {
+      color: #185ADB;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 24px;
+    }
+
+    li {
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      color: #425466;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="about-wrapper">
+    <div class="white-tilted-layer"></div>
+    <div class="blue-shapes">
+      <div class="blue1"></div>
+      <div class="blue2"></div>
+    </div>
+
+    <section class="section">
+      <h1>प्रलेखन</h1>
+
+      <h2>ओपनसेतु: यह कैसे काम करता है</h2>
+      <p>
+        ओपनसेतु <strong>DNS over HTTPS (DoH)</strong> द्वारा संचालित है, जो एक नेटवर्क प्रोटोकॉल है जो डोमेन नामों को HTTPS पर सुरक्षित रूप से हल करता है। DoH बिचौलियों को DNS क्वेरीज़ पर जासूसी करने या उनसे छेड़छाड़ करने से रोककर गोपनीयता और सुरक्षा को बढ़ाता है।
+      </p>
+
+      <h2>भारत का इंटरनेट</h2>
+      <p>
+        भारत का इंटरनेट <strong>Handshake</strong> पर आधारित है, जो एक ओपन-सोर्स, विकेन्द्रीकृत नामकरण प्रोटोकॉल है जो इंटरनेट के लिए एक वैकल्पिक रूट ज़ोन के रूप में कार्य करता है। यह सेंसरशिप-प्रतिरोधी, छेड़छाड़-रोधी डोमेन रिज़ॉल्यूशन को सक्षम बनाता है, जो हमारे इंटरनेट की रीढ़ है।
+      </p>
+      <p>
+        निकट भविष्य में, हम अधिक खुले और अंतर-संचालनीय वेब को सक्षम करने के लिए <strong>ENS (Ethereum Name Service)</strong> और <strong>IPFS (InterPlanetary File System)</strong> जैसे प्रोटोकॉल का समर्थन करने की भी योजना बना रहे हैं।
+      </p>
+
+      <h2>अपना खुद का DoH बनाएं</h2>
+      <p>
+        कोई भी व्यक्ति भारतीय इंटरनेट तक पहुँचने और उसका विस्तार करने के लिए DoH रिज़ॉल्वर बना सकता है — चाहे वह स्कूल हो, विश्वविद्यालय हो, स्टार्टअप हो, गैर-लाभकारी संस्था हो या सरकारी एजेंसी। <br>
+        <strong>ओपनसेतु</strong> केवल एक उदाहरण है; <em>आप अपना स्वयं का सर्वर चला सकते हैं।</em>
+      </p>
+
+      <h2>हमारा स्टैक एक्सप्लोर करें</h2>
+      <ul>
+        <li>🧰 <strong>Docker DoH सर्वर:</strong> <a href="https://github.com/satishweb/docker-doh" target="_blank">https://github.com/satishweb/docker-doh</a></li>
+        <li>🌐 <strong>Handshake (HNS) दस्तावेज़:</strong> <a href="https://hsd-dev.org/" target="_blank">https://hsd-dev.org/</a></li>
+        <li>🦊 <strong>Ethereum Name Service (ENS):</strong> <a href="https://ens.domains/" target="_blank">https://ens.domains/</a></li>
+        <li>📦 <strong>IPFS: इंटरप्लेनेटरी फ़ाइल सिस्टम:</strong> <a href="https://ipfs.tech/" target="_blank">https://ipfs.tech/</a></li>
+      </ul>
+    </section>
+  </section>
+
+</body>
+</html>

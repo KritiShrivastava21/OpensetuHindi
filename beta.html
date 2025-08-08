@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OpenSetu बीटा सॉफ़्टवेयर चेतावनी</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+    }
+
+    .about-wrapper {
+      background-color: #F7F9FB;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .white-tilted-layer {
+      position: absolute;
+      top: 60px;
+      width: 100%;
+      height: 1550px;
+      background: white;
+      transform: skewY(-5deg);
+      z-index: 0;
+    }
+
+    .blue-shapes {
+      position: absolute;
+      top: -45px;
+      right: 0;
+      z-index: 1;
+      transform: skewY(-5deg);
+    }
+
+    .blue1, .blue2 {
+      height: 25px;
+      transform: skewX(-30deg);
+      position: absolute;
+    }
+
+    .blue1 {
+      background-color: #80E9FF;
+      top: 50px;
+      right: 10px;
+      z-index: 1;
+      width: 420px;
+    }
+
+    .blue2 {
+      background-color: #185ADB;
+      top: 70px;
+      right: 220px;
+      z-index: 2;
+      width: 120px;
+    }
+
+    .section {
+      position: relative;
+      max-width: 900px;
+      padding: 120px 24px 80px;
+      margin: auto;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: #032E83;
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      color: #032E83;
+      margin-top: 40px;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #425466;
+      margin-bottom: 16px;
+    }
+
+    a {
+      color: #185ADB;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="about-wrapper">
+    <div class="white-tilted-layer"></div>
+    <div class="blue-shapes">
+      <div class="blue1"></div>
+      <div class="blue2"></div>
+    </div>
+
+    <section class="section">
+      <h1>बीटा सॉफ़्टवेयर चेतावनी</h1>
+
+      <p>
+        OpenSetu फिलहाल बीटा में है और यह एक प्रायोगिक पहल है। हम एक सहज अनुभव प्रदान करने का प्रयास कर रहे हैं, लेकिन कृपया सतर्क रहें क्योंकि कुछ बग या अनपेक्षित समस्याएं हो सकती हैं।
+      </p>
+
+      <h2>महत्वपूर्ण लेनदेन के लिए पुराने इंटरनेट का उपयोग करें</h2>
+      <p>
+        यदि आप कोई वित्तीय लेनदेन, संवेदनशील व्यक्तिगत जानकारी या अत्यावश्यक सेवाओं से जुड़ी गतिविधि कर रहे हैं, तो हम सलाह देते हैं कि फिलहाल पुराने इंटरनेट का ही उपयोग करें।
+      </p>
+
+      <h2>भाषा समर्थन अभी विकसित हो रहा है</h2>
+      <p>
+        हमने विभिन्न भारतीय भाषाओं में डोमेन नामों के लिए सार्वजनिक टूल और सर्वोत्तम प्रयासों से ट्रांसलिटरेशन किया है। यदि आप किसी वर्तनी की गलती या सुधार देख रहे हैं, तो कृपया हमें बताएं — हम आपका सहयोग स्वागत से स्वीकार करेंगे।
+      </p>
+
+      <h2>डोमेन नाम की लंबाई</h2>
+      <p>
+        हमने अंग्रेज़ी के संक्षेपों को भारतीय लिपियों में ट्रांसलिटरेट किया है। इससे कुछ डोमेन नाम बहुत लंबे हो जाते हैं, जिससे संक्षेप उपयोग करने का उद्देश्य ही विफल हो जाता है। क्या हमें “irctc.co.in” को आईआरसीटीसी.को.भ लिखना चाहिए, या सीधे रेलटिकट.भ? यह एक खुली बातचीत है — आप इसमें भाग ले सकते हैं <a href="https://x.com/opensetu" target="_blank">X (@opensetu)</a> पर।
+      </p>
+
+      <h2>ओपन और फोर्क करने योग्य</h2>
+      <p>
+        OpenSetu पूरी तरह ओपन-सोर्स है। कोई भी अपना खुद का DNS-over-HTTPS (DoH) सर्वर चला सकता है या इस ईकोसिस्टम में योगदान दे सकता है। अधिक जानकारी के लिए देखें हमारी <a href="/documentation">प्रलेखन</a>।
+      </p>
+
+      <h2>कोई ट्रैकिंग नहीं। कोई निगरानी नहीं। कोई मोनेटाइज़ेशन नहीं।</h2>
+      <p>
+        हम उपयोगकर्ता डेटा को लॉग, ट्रैक, संग्रहित, बेचते या मोनेटाइज़ नहीं करते हैं। यदि भविष्य में कोई नियमन इसके विपरीत अपेक्षा करता है, तो हम पूरी पारदर्शिता के साथ आपको पहले से सूचित करेंगे।
+      </p>
+
+      <h2>सेवा सुझाएं</h2>
+      <p>
+        यदि आप कोई ब्रांड, सरकारी विभाग या प्लेटफ़ॉर्म मालिक हैं और चाहते हैं कि आपकी साइट "देश का इंटरनेट" पर दिखे, तो कृपया यह फॉर्म भरें।
+      </p>
+
+      <h2>हटाने के अनुरोध</h2>
+      <p>
+        हमें उम्मीद है कि आपको क्षेत्रीय रीडायरेक्ट्स से मिली अतिरिक्त ट्रैफ़िक की सराहना होगी। यदि आप चाहते हैं कि हम कोई विशेष लिंक हटाएं, तो कृपया हमें <a href="mailto:legal@opensetu.in">legal@opensetu.in</a> पर ईमेल करें — हम तुरंत कार्रवाई करेंगे।
+      </p>
+
+      <h2>अनुपालन और सम्मान</h2>
+      <p>
+        हम बौद्धिक संपदा अधिकारों, ब्रांड पहचान और भारत सरकार के सभी नियमों का गहरा सम्मान करते हैं। किसी भी त्रुटि की स्थिति में हम उसे शीघ्रता से सुधारने को तैयार हैं।
+      </p>
+
+      <h2>एक छोटे से दल द्वारा निर्मित</h2>
+      <p>
+        OpenSetu एक छोटे, समर्पित चार सदस्यीय दल द्वारा बनाया गया है, जो कोड, समुदाय और नींद – सब कुछ संभाल रहा है। हम बूटस्ट्रैप्ड हैं, सीमित संसाधनों में काम कर रहे हैं, लेकिन पूरी लगन से। यदि आपको कोई समस्या दिखे, तो कृपया सहनशील रहें — हम जल्द से जल्द सुधारने का प्रयास करेंगे।
+      </p>
+
+      <h2>संपर्क करें</h2>
+      <p>
+        ईमेल: xyz<br>
+        सुझाव: xyz
+      </p>
+    </section>
+  </section>
+
+</body>
+</html>
