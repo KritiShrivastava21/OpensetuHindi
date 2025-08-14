@@ -4,151 +4,314 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>OpenSetu Hero</title>
+  <title>ओपनसेतु</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <style>
+    /* मेनू बार स्टाइलिंग */
+    .top-menu {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      background: #f8f9fa;
+      padding: 12px 40px;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .top-menu a {
+      font-family: 'Inter', sans-serif;
+      color: #333;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .top-menu a:hover {
+      color: #007BFF;
+    }
+
+    /* हैमबर्गर बटन */
+    .menu-toggle {
+      display: none;
+      font-size: 1.5em;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #333;
+    }
+
+    /* साइड मेनू */
+    .side-menu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: #f8f9fa;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+      z-index: 2000;
+    }
+    .side-menu a {
+      display: block;
+      padding: 10px 20px;
+      color: #333;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+    }
+    .side-menu a:hover {
+      color: #007BFF;
+    }
+    .side-menu .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 2em;
+      text-decoration: none;
+      color: #333;
+    }
+
+    /* रेस्पॉन्सिव नियम */
+    @media (max-width: 768px) {
+      .top-menu a {
+        display: none;
+      }
+      .menu-toggle {
+        display: block;
+        margin-left: auto;
+      }
+    }
+  </style>
 </head>
 <body class="page">
+
+  <!-- टॉप मेनू -->
+  <nav class="top-menu">
+    <a href="index.html">होम</a>
+    <a href="about.html">हमारे बारे में</a>
+    <a href="beta.html">क़ानूनी</a>
+    <a href="documentation.html">डॉक्यूमेंटेशन</a>
+    <a href="domain.html">डोमेन सूची</a>
+    <button class="menu-toggle" onclick="openMenu()"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <!-- साइड मेनू -->
+  <div id="sideMenu" class="side-menu">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
+    <a href="index.html">होम</a>
+    <a href="about.html">हमारे बारे में</a>
+    <a href="beta.html">क़ानूनी</a>
+    <a href="documentation.html">डॉक्यूमेंटेशन</a>
+    <a href="domain.html">डोमेन सूची</a>
+  </div>
 
   <div class="tilted-bg"></div>
 
   <section class="hero">
     <div class="hero-text">
-      <h1 class="hero-title">
-        1.4 अरब आवाज़ें,<br>
-        22 भाषाएँ,<br>
-        एक इंटरनेट<br>
-        &amp; आप
+      <h1 class="hero-title">150 करोड़ आवाज,<br>
+        23 भाषा, <br>
+        एकजुट एक
+        इंटरनेट पर।
       </h1>
       <p class="hero-lead">
-        ओपनसेतु आपको अपनी मातृभाषा में इंटरनेट एक्सेस करने की सुविधा देता है। किसी ऐप की ज़रूरत नहीं।
-        <br><br>बस अपनी ब्राउज़र सेटिंग बदलें और फिर, वेब आपकी भाषा बोलने लगेगा।
-        <br><br>यह वह बुनियादी संरचना है जो आपको वेब के भाषा-विशिष्ट संस्करणों से जोड़ती है।
-        <br><br>शुरू करें: pranam.opensetu.in
-      </p>
-      <button class="btn-primary">देखिये यह कैसे काम करता है →</button>
-    </div>
+  ओपनसेतु आपको अपनी मातृभाषा में इंटरनेट एक्सेस करने देता है। किसी ऐप की ज़रूरत नहीं।
+  बस अपने ब्राउज़र सेटिंग बदलें, और वेब आपकी भाषा में बोलेगा।
+  <br><br>यह वह इंफ्रास्ट्रक्चर है जो आपको भाषा-विशिष्ट वेब संस्करणों से जोड़ता है।
+  <br><br>ओपनसेतु का इस्तेमाल शुरू करें:
+</p>
+
+<div class="link-box">
+  <span id="opensetu-link">https://pranam.opensetu.in</span>
+  <button id="copy-btn" title="लिंक कॉपी करें">
+    <i class="fa-solid fa-copy"></i>
+  </button>
+</div>
+
+<script>
+  document.getElementById("copy-btn").addEventListener("click", function() {
+    const text = document.getElementById("opensetu-link").innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      alert("लिंक कॉपी हो गया!");
+    });
+  });
+</script>
+
+
+     <button class="btn-primary" onclick="scrollToVideo()">देखें यह कैसे काम करता है →</button>
+</div>
+
     <div class="hero-image">
-      <img src="img1.png" alt="Descriptive text" />
+      <img src="img1.png" alt="वर्णनात्मक चित्र" />
     </div>
   </section>
 
-  <section class="info-section"> 
-    <div class="info-wrapper">
-      <div class="text-block">
-        <h2 class="section-title">ओपनसेतु क्या करता है?</h2>
-        <p>ओपनसेतु एक DNS रिज़ॉल्वर है जो आपको सार्वजनिक वस्तुओं और सरकारी उपयोगिताओं तक अपनी मातृभाषा में पहुँचने की सुविधा देता है। बस अपने डोमेन का नाम अपनी भाषा में टाइप करें और यह आपको आधिकारिक साइट के भाषा संस्करण पर रीडायरेक्ट कर देगा।</p>
-        <p>उदाहरण के लिए, यदि आप हिंदी भाषी हैं, तो आप <span class="highlight">पीएमकिसान.सर.भा</span> टाइप करें या तमिल में <span class="highlight">பிஎம்கிசான்.ப</span> आदि।</p>
-        <p class="small">अस्वीकरण: OpenSetu, फ़िलहाल, केवल उन्हीं वेबसाइटों पर रीडायरेक्ट करता है जो URL के ज़रिए भाषा संस्करणों का समर्थन करती हैं। अगर कोई वेबसाइट भाषा बदलने के लिए जावास्क्रिप्ट या कुकीज़ का इस्तेमाल करती है, तो उपयोगकर्ताओं को साइट के भाषा चयनकर्ता का इस्तेमाल करके मैन्युअल रूप से भाषा बदलनी होगी।</p>
-      </div>
-      <div class="image-block">
-        <img src="img2.png" alt="OpenSetu Example" class="info-image">
-      </div>
-    </div>
-  </section>
+  <script>
+    // कॉपी बटन
+    document.getElementById("copy-btn").addEventListener("click", function () {
+      const linkText = document.getElementById("opensetu-link").textContent;
+      navigator.clipboard.writeText(linkText).then(() => {
+        alert("लिंक क्लिपबोर्ड में कॉपी हो गया!");
+      }).catch(err => {
+        console.error("कॉपी करने में असफल: ", err);
+      });
+    });
 
-  <section class="info-section">
-    <div class="info-wrapper">
-      <div class="text-block">
-        <h2 class="section-title">ओपनसेतु एक अनुवादक नहीं,<br>बल्कि नए इंटरनेट का सेतु है</h2>
-        <p>यहाँ कोई अंग्रेज़ बाउंसर नहीं है। ये भारत का अपना इंटरनेट है, जहाँ:</p>
-        <ul class="feature-list">
-          <li>आपकी भाषा डिफ़ॉल्ट है, अपवाद नहीं।</li>
-          <li>पुराना इंटरनेट पहले की तरह ही काम करता है।</li>
-          <li>अब अपनी मूल स्क्रिप्ट में वेबसाइटों तक पहुँचें।</li>
-          <li>प्रत्येक नागरिक को डिजिटल सार्वजनिक वस्तुओं तक पहुंच प्राप्त होगी।</li>
-        </ul>
-      </div>
-      <div class="image-block">
-        <img src="img3.png" alt="Bridge to New Internet" class="info-image">
-      </div>
-    </div>
-  </section>
+    // साइड मेनू फंक्शन
+    function openMenu() {
+      document.getElementById("sideMenu").style.width = "250px";
+    }
+    function closeMenu() {
+      document.getElementById("sideMenu").style.width = "0";
+    }
+  </script>
 
-  <section class="info-section">
-    <div class="info-wrapper">
-      <div class="text-block">
-        <h2 class="section-title">जब भी आप तैयार हों!</h2>
-        <p>आज, ओपनसेतु पर, आप पहले से ही सभी प्रमुख सार्वजनिक उपयोगिताओं जैसे आधार, डिजीलॉकर, यूपीआई, स्वास्थ्य आईडी, राशन, पीएम किसान, रोजगार सेवाएं, हर चीज़ जो मायने रखती है, तक पहुंच सकते हैं!</p>
-        <p>हम सार्वजनिक बुनियादी ढांचे से शुरुआत कर रहे हैं, हम स्थानीय भारत में पूर्ण डिजिटल दुनिया लाने के लिए सरकारों, स्टार्टअप्स और निजी प्लेटफार्मों के साथ काम करेंगे।</p>
-      </div>
-      <div class="image-block">
-        <img src="img4.png" alt="Ready Image" class="info-image">
-      </div>
-    </div>
-  </section>
+<section class="info-section"> 
+  <div class="info-wrapper">
+    <div class="text-block">
+      <h2 class="section-title">ओपनसेतु क्या करता है?</h2>
+      <p>ओपनसेतु एक DNS रेज़ॉल्वर है जो आपको सार्वजनिक सेवाओं और सरकारी यूटिलिटीज़ तक आपकी मातृभाषा में पहुँचने देता है। बस अपने डोमेन का नाम अपनी भाषा में टाइप करें और यह आपको उस साइट के भाषा संस्करण पर रीडायरेक्ट करेगा।</p>
+      <p>
+  <strong>उदाहरण के लिए,</strong> अगर आप हिंदी बोलते हैं, तो आप pmkisan.gov.in को बस टाइप करके खोल सकते हैं 
+  <span class="highlight">पीएमकिसान.गव.भ</span> 
+  देवनागरी में। <br>
+  समर्थित डोमेनों की पूरी सूची आप यहाँ देख सकते हैं 
+  <a href="domain.html">डोमेन सूची</a>
+</p>
 
-  <section class="last info-section">
-    <div class="container center-content">
-      <h2 class="section-title">कैसे शुरू करें</h2>
-      <p>एक बदलाव. एक नया इंटरनेट.</p>
-      <div class="video-wrapper">
-        <video src="your-video.mp4" controls></video>
-      </div>
+      <p class="small"><strong>अस्वीकरण:</strong> 
+        फिलहाल, ओपनसेतु सिर्फ़ उन वेबसाइटों पर रीडायरेक्ट करता है जो URL के माध्यम से भाषा संस्करण सपोर्ट करती हैं। अगर कोई वेबसाइट भाषा बदलने के लिए JavaScript या कुकीज़ का उपयोग करती है, तो उपयोगकर्ताओं को उस साइट के भाषा चयनकर्ता से मैन्युअली भाषा बदलनी होगी।</p>
+ </div>
+    <div class="image-block">
+      <img src="img2.png" alt="ओपनसेतु उदाहरण" class="info-image">
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="cta-section">
-    <div class="cta-gradient-layer"></div>
-    <div class="cta-inner">
-      <h2>यह तो एक शुरूआत है</h2>
-      <div class="cta-grid">
-        <div>
-          <p class="cta-desc">आधार, डिजीलॉकर, यूपीआई, गूगल,<br>एक्स, बीटीसी</p>
-          <h3>सार्वजनिक उपयोगिताएँ</h3>
-        </div>
-        <div>
-          <p class="cta-desc">आपकी मातृभाषा में निहित सत्यापन योग्य डिजिटल पहचान।</p>
-          <h3>डिजिटल नागरिकता</h3>
-        </div>
-        <div>
-          <p class="cta-desc">आपकी मातृभाषा में डोमेन नाम और व्यक्तिगत ईमेल आईडी।</p>
-          <h3>स्थानीय पहचान</h3>
-        </div>
-        <div>
-          <p class="cta-desc">भारत का इंटरनेट पर अपना स्वयं का DOH रिज़ॉल्वर या सेवाएँ बनाएँ</p>
-          <h3>इस पर निर्माण करें</h3>
-        </div>
-        <div>
-          <p class="cta-desc">भारत के लिए निर्मित ऐप्स, प्लेटफॉर्म और सेवाएं।</p>
-          <h3>डिजिटल स्वदेशी</h3>
-        </div>
-        <div>
-          <p class="cta-desc">और IPFS जैसी वैश्विक Web3 अवसंरचना के साथ एकीकृत करें ।</p>
-          <h3>वेब3 एकीकरण</h3>
-        </div>
-      </div>
+<section class="info-section">
+  <div class="info-wrapper">
+    <div class="text-block">
+      <h2 class="section-title">अनुवादक नहीं,<br>
+        ओपनसेतु है<br>
+        नए इंटरनेट का पुल।</h2>
+      <p>यह है भारत का अपना इंटरनेट:</p>
+      <ul class="feature-list">
+        <li>आपकी भाषा डिफ़ॉल्ट है, अपवाद नहीं।</li><br>
+        <li>पुराना इंटरनेट पहले जैसा ही चलता है।</li><br>
+        <li>अब अपनी मातृलिपि में वेबसाइट एक्सेस करें।</li><br>
+        <li>हर नागरिक को डिजिटल सार्वजनिक सेवाओं की पहुँच।</li><br>
+      </ul>
     </div>
-  </section>
+    <div class="image-block">
+      <img src="img3.png" alt="नए इंटरनेट का पुल" class="info-image">
+    </div>
+  </div>
+</section>
+
+<section class="info-section">
+  <div class="info-wrapper">
+    <div class="text-block">
+      <p>आज, ओपनसेतु पर, आप पहले से ही सभी प्रमुख सार्वजनिक सेवाओं जैसे आधार, डिजीलॉकर, UPI, हेल्थ ID, राशन, पीएम किसान, रोजगार सेवाएँ और अन्य सब कुछ एक्सेस कर सकते हैं।</p>
+      <p>हम सार्वजनिक इंफ्रास्ट्रक्चर से शुरुआत कर रहे हैं, हम सरकारों, स्टार्टअप्स और निजी प्लेटफार्मों के साथ काम करेंगे ताकि पूरे डिजिटल विश्व को भाषाई भारत तक लाया जा सके।</p>
+    </div>
+    <div class="image-block">
+      <img src="img4.png" alt="तैयार चित्र" class="info-image">
+    </div>
+  </div>
+</section>
+
+
+<section id="how-to-get-started" class="last info-section">
+  <div class="container center-content">
+    <h2 class="section-title">शुरू कैसे करें</h2>
+    <p>एक बदलाव। एक नया इंटरनेट।</p>
+
+    <div class="video-wrapper">
+      <video id="get-started-video" src="your-video.mp4" controls></video>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <!-- ग्रेडिएंट ट्रेपेज़ियम लेयर -->
+  <div class="cta-gradient-layer"></div>
+
+  <!-- मुख्य सामग्री -->
+<div class="cta-inner">
+  <h2>यह तो बस शुरुआत है</h2>
+  <div class="cta-grid">
+    <div>
+      <h3>सार्वजनिक सेवाएँ</h3>
+      <p class="cta-desc">आधार, डिजीलॉकर, UPI, गूगल,
+        <br>एक्स, BTC</p>
+    </div>
+    <div>
+      <h3>डिजिटल नागरिकता</h3>
+      <p class="cta-desc">मातृभाषा में आधारित सत्यापन योग्य डिजिटल पहचान।</p>
+    </div>
+    <div>
+      <h3>स्थानीय पहचान</h3>
+      <p class="cta-desc">मातृभाषा में डोमेन नाम और व्यक्तिगत ईमेल आईडी।</p>
+    </div>
+    <div>
+      <h3>इस पर निर्माण करें</h3>
+      <p class="cta-desc">अपना खुद का DOH रेज़ॉल्वर या
+        <br>भारत के इंटरनेट पर सेवाएँ बनाएँ</p>
+    </div>
+    <div>
+      <h3>डिजिटल स्वदेशी</h3>
+      <p class="cta-desc">ऐप्स, प्लेटफ़ॉर्म और
+        <br>सेवाएँ जो भारत के लिए बनी हैं।</p>
+    </div>
+    <div>
+      <h3>Web3 इंटीग्रेशन</h3>
+      <p class="cta-desc">वैश्विक Web3 इंफ्रास्ट्रक्चर जैसे .eth और IPFS से इंटीग्रेट करें।</p>
+    </div>
+  </div>
+</div>
+
+</section>
 
   <footer class="footer">
     <div class="footer-grid">
       <div>
         <h3>ओपनसेतु</h3>
-        <ul>
-          <li><a href="about.html" class="hover:underline">हमारे बारे में</a></li>
-          <li><a href="privacy.html" class="hover:underline">गोपनीयता नीति</a></li>
-        </ul>
+        <ul><li><a href="about.html" class="hover:underline">हमारे बारे में</a></li>
+          <li><a href="privacy.html" class="hover:underline">गोपनीयता नीति</a>
+</ul>
       </div>
       <div>
         <h3>पेज लिंक</h3>
-        <ul>
-          <li><a href="FAQ.html" class="hover:underline">अक्सर पूछे जाने वाले प्रश्न</a></li>
-          <li><a href="documentation.html" class="hover:underline">दस्तावेज़ीकरण</a></li>
-          <li><a href="beta.html" class="hover:underline">बीटा सॉफ़्टवेयर अलर्ट</a></li>
-        </ul>
+        <ul><li><a href="domain.html" class="hover:underline">डोमेन सूची</a></li>
+          <li><a href="documentation.html" class="hover:underline">डॉक्यूमेंटेशन</a></li>
+        <li><a href="beta.html" class="hover:underline">बीटा सॉफ़्टवेयर अलर्ट</a></li></ul>
       </div>
       <div>
         <h3>संपर्क</h3>
-        <ul>
-          <li><a href="#">फेसबुक</a></li>
-          <li><a href="#">LinkedIn</a></li>
-          <li><a href="#">X (ट्विटर)</a></li>
-        </ul>
+        <ul><li><a href="#">फ़ेसबुक</a></li>
+          <li><a href="#">लिंक्डइन</a></li>
+          <li><a href="#">एक्स (ट्विटर)</a></li></ul>
       </div>
     </div>
-    <div class="footer-copy">© 2025 ओपनसेतु. सर्वाधिकार सुरक्षित।</div>
+    <div class="footer-copy">© 2025 अगामिन। सर्वाधिकार सुरक्षित।</div>
   </footer>
 
 </body>
+
+<script>
+function scrollToVideo() {
+  const section = document.getElementById('how-to-get-started');
+  section.scrollIntoView({ behavior: 'smooth' });
+
+  const video = document.getElementById('get-started-video');
+  video.play();
+}
+</script>
+
 </html>
